@@ -15,7 +15,6 @@ def canUnlockAll(boxes):
         for possibleKey in box:
             if possibleKey != 0 and possibleKey in keysRequired:
                 keysFound.add(possibleKey)
-                break
     soln = keysFound.issubset(
         keysRequired) and keysRequired.issubset(keysFound)
     return (soln)
