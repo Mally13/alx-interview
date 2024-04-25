@@ -11,10 +11,11 @@ def canUnlockAll(boxes):
     '''
     keysRequired = set(range(len(boxes)))
     keysFound = set([0])
-    for box in boxes:
+    for boxIndex, box in enumerate(boxes):
         for possibleKey in box:
             if possibleKey != 0 and possibleKey in keysRequired:
                 keysFound.add(possibleKey)
+                break
     soln = keysFound.issubset(
         keysRequired) and keysRequired.issubset(keysFound)
     return (soln)
