@@ -10,7 +10,7 @@ def main():
     """Reads lines from stdin"""
     totalFileSize = 0
     statusCodes = {}
-    
+
     try:
         for idx, line in enumerate(sys.stdin, start=1):
             fileSize = int(line.split()[5])
@@ -26,7 +26,7 @@ def main():
                 sortedCodes = sorted(statusCodes.items())
                 for key, value in sortedCodes:
                     print(f'{key}: {value}')
-    except KeyboardInterrupt:    
+    except KeyboardInterrupt:
         print(f'File size: {totalFileSize}')
         sortedCodes = sorted(statusCodes.items())
         for key, value in sortedCodes:
