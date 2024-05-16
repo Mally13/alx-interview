@@ -8,15 +8,15 @@ def is_safe(board, row, col, n):
     for i in range(row):
         if board[i][col] == 1:
             return False
-    
+
     for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
-    
+
     for i, j in zip(range(row, -1, -1), range(col, n)):
         if board[i][j] == 1:
             return False
-    
+
     return True
 
 
@@ -25,7 +25,7 @@ def solve_n_queens(board, row, n, solutions):
     if row == n:
         solutions.append([row[:] for row in board])
         return
-    
+
     for col in range(n):
         if is_safe(board, row, col, n):
             board[row][col] = 1
@@ -55,7 +55,6 @@ def nqueens(n):
     else:
         print('N must be a number')
         exit(1)
-
 
 
 if __name__ == '__main__':
