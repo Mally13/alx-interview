@@ -35,24 +35,24 @@ def solve_n_queens(board, row, n, solutions):
 
 def nqueens(n):
     """Solves the nqueens problem"""
-    n = int(n)
-    if type(n) is int:
-        if n < 4:
-            print('N must be at least 4')
-            exit(1)
-        else:
-            board = [[0] * n for _ in range(n)]
-            lineup = []
-            solve_n_queens(board, 0, n, lineup)
-            for i, val in enumerate(lineup):
-                queens_idx = []
-                for j, valin in enumerate(val):
-                    for k, valik in enumerate(valin):
-                        if valik == 1:
-                            queens_idx.append([j, k])
-                print(queens_idx)
-
-    else:
+    try:
+        n = int(n)
+        if type(n) is int:
+            if n < 4:
+                print('N must be at least 4')
+                exit(1)
+            else:
+                board = [[0] * n for _ in range(n)]
+                lineup = []
+                solve_n_queens(board, 0, n, lineup)
+                for i, val in enumerate(lineup):
+                    queens_idx = []
+                    for j, valin in enumerate(val):
+                        for k, valik in enumerate(valin):
+                            if valik == 1:
+                                queens_idx.append([j, k])
+                    print(queens_idx)
+    except ValueError:
         print('N must be a number')
         exit(1)
 
