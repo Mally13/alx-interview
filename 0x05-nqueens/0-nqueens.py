@@ -49,7 +49,7 @@ def nqueens(n):
                 for j, valin in enumerate(val):
                     for k, valik in enumerate(valin):
                         if valik == 1:
-                            queens_idx.append(f"[{j}, {k}]")
+                            queens_idx.append([j, k])
                 print(queens_idx)
 
     else:
