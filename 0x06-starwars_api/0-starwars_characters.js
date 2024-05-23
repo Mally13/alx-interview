@@ -1,34 +1,20 @@
 #!/usr/bin/node
-/**
- * prints all the characters of a star wars movie
- */
+const util = require('util');
+const request = util.promisify(require('request'));
+const filmID = process.argv[2];
 
-const { argv } = process;
-const request = require('request');
+async function starwarsCharacters (filmId) {
+  const endpoint = 'https://swapi-api.hbtn.io/api/films/' + filmId;
+  let response = await (await request(endpoint)).body;
+  response = JSON.parse(response);
+  const characters = response.characters;
 
-if (argv.length !== 3) {
-  console.error('Usage: ./0-starwars_characters.js 3');
-  process.exit(1);
+  for (let i = 0; i < characters.length; i++) {
+    const urlCharacter = characters[i];
+    let character = await (await request(urlCharacter)).body;
+    character = JSON.parse(character);
+    console.log(character.name);
+  }
 }
-const movieId = process.argv[2];
-const url = `https://swapi.dev/api/films/${movieId}`;
-request(url, (err, response, body) => {
-  if (err) {
-    console.error(err);
-    return
-  }
-  const filmData = JSON.parse(body);
-  if (!filmData) {
-    console.error('Invalid movie id')
-  }
-  filmData.characters.forEach(characterUrl => {
-    request(characterUrl, (characterError, characterResponse, characterBody) => {
-      if (characterError) {
-        console.error(characterError)
-        return
-      }
-      const characterData = JSON.parse(characterBody);
-      console.log(characterData.name);
-    });
-  });
-});
+
+starwarsCharacters(filmID);
