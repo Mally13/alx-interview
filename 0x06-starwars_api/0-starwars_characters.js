@@ -10,7 +10,7 @@ if (argv.length !== 3) {
   console.error('Usage: ./0-starwars_characters.js 3');
   process.exit(1);
 }
-
+const movieId = process.argv[2];
 const url = `https://swapi.dev/api/films/${movieId}`;
 request(url, (err, response, body) => {
   if (err) {
