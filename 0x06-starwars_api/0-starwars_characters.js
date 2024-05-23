@@ -8,7 +8,7 @@ const request = require('request');
 const movieURL = 'https://swapi-api.alx-tools.com/api/films';
 
 if (argv.length !== 3) {
-  console.error('Usage: ./100-starwars_characters.js 3');
+  console.error('Usage: ./0-starwars_characters.js 3');
   process.exit(1);
 }
 
