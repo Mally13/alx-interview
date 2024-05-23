@@ -1,4 +1,8 @@
 #!/usr/bin/node
+/**
+ * Prints starwars characters in he same order as the
+ * “characters” list in the /films/ endpoint
+ */
 const util = require('util');
 const request = util.promisify(require('request'));
 const filmID = process.argv[2];
