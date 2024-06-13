@@ -10,6 +10,7 @@ island described in grid
         grid is rectangular, with its width and height not exceeding 100
 """
 
+
 def island_perimeter(grid):
     """
     Returns the perimeter of the island described in grid
