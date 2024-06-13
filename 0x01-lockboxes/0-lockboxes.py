@@ -11,7 +11,7 @@ def canUnlockAll(boxes):
     '''
     keysRequired = set(range(len(boxes)))
     keysFound = set([0])
-    for boxIndex, box in enumerate(boxes):
+    for box in boxes:
         for possibleKey in box:
             if possibleKey != 0 and possibleKey in keysRequired:
                 keysFound.add(possibleKey)
