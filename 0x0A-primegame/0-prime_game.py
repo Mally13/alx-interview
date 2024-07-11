@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Contains a function that determines the winner of a
-prime game
+Contains a function that determines the winner of a prime game
 """
 
 
@@ -27,7 +26,6 @@ def isWinner(x, nums):
 
     max_num = max(nums)
     prime_list = sieve_of_eratosthenes(max_num)
-    prime_set = set(prime_list)
 
     maria_wins = 0
     ben_wins = 0
